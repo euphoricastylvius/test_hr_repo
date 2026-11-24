@@ -1,0 +1,251 @@
+{
+  "actions": [],
+  "creation": "2026-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "rates_effective_from",
+    "section_sss",
+    "sss_ee_rate",
+    "column_break_sss1",
+    "sss_er_rate",
+    "column_break_sss2",
+    "sss_msc_min",
+    "sss_msc_max",
+    "section_sss_ec",
+    "sss_ec_msc_threshold",
+    "column_break_sss3",
+    "sss_ec_small",
+    "sss_ec_big",
+    "section_philhealth",
+    "philhealth_ee_rate",
+    "column_break_ph1",
+    "philhealth_floor",
+    "philhealth_ceiling",
+    "section_hdmf",
+    "hdmf_ee_rate_low",
+    "hdmf_low_comp_threshold",
+    "column_break_hdmf1",
+    "hdmf_ee_rate_high",
+    "hdmf_compensation_cap",
+    "section_bir",
+    "bir_brackets",
+    "section_options",
+    "statutory_split_mode",
+    "column_break_opt1",
+    "mwe_tax_exempt",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "rates_effective_from",
+      "fieldtype": "Date",
+      "label": "Rates Effective From",
+      "default": "2026-01-01",
+      "description": "Informational: year the loaded statutory tables apply to."
+    },
+    {
+      "fieldname": "section_sss",
+      "fieldtype": "Section Break",
+      "label": "SSS (2026)"
+    },
+    {
+      "fieldname": "sss_ee_rate",
+      "fieldtype": "Percent",
+      "label": "Employee Share (% of MSC)",
+      "default": "5"
+    },
+    {
+      "fieldname": "column_break_sss1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "sss_er_rate",
+      "fieldtype": "Percent",
+      "label": "Employer Share (% of MSC)",
+      "default": "10"
+    },
+    {
+      "fieldname": "column_break_sss2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "sss_msc_min",
+      "fieldtype": "Currency",
+      "label": "MSC Minimum",
+      "default": "5000"
+    },
+    {
+      "fieldname": "sss_msc_max",
+      "fieldtype": "Currency",
+      "label": "MSC Maximum",
+      "default": "35000"
+    },
+    {
+      "fieldname": "section_sss_ec",
+      "fieldtype": "Section Break",
+      "label": "SSS EC (Employer Compensation) Contribution"
+    },
+    {
+      "fieldname": "sss_ec_msc_threshold",
+      "fieldtype": "Currency",
+      "label": "EC Higher Rate From MSC",
+      "default": "15000"
+    },
+    {
+      "fieldname": "column_break_sss3",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "sss_ec_small",
+      "fieldtype": "Currency",
+      "label": "EC Amount (below threshold)",
+      "default": "10"
+    },
+    {
+      "fieldname": "sss_ec_big",
+      "fieldtype": "Currency",
+      "label": "EC Amount (at/above threshold)",
+      "default": "30"
+    },
+    {
+      "fieldname": "section_philhealth",
+      "fieldtype": "Section Break",
+      "label": "PhilHealth (2026)"
+    },
+    {
+      "fieldname": "philhealth_ee_rate",
+      "fieldtype": "Percent",
+      "label": "Employee Share (% of base)",
+      "default": "2.5",
+      "description": "Total premium is 5% of the base, split 50/50 between employer and employee."
+    },
+    {
+      "fieldname": "column_break_ph1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "philhealth_floor",
+      "fieldtype": "Currency",
+      "label": "Premium Base Floor",
+      "default": "10000"
+    },
+    {
+      "fieldname": "philhealth_ceiling",
+      "fieldtype": "Currency",
+      "label": "Premium Base Ceiling",
+      "default": "100000"
+    },
+    {
+      "fieldname": "section_hdmf",
+      "fieldtype": "Section Break",
+      "label": "Pag-IBIG / HDMF (2026)"
+    },
+    {
+      "fieldname": "hdmf_ee_rate_low",
+      "fieldtype": "Percent",
+      "label": "Employee Rate (comp <= threshold)",
+      "default": "1"
+    },
+    {
+      "fieldname": "hdmf_low_comp_threshold",
+      "fieldtype": "Currency",
+      "label": "Low-Rate Compensation Threshold",
+      "default": "1500"
+    },
+    {
+      "fieldname": "column_break_hdmf1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "hdmf_ee_rate_high",
+      "fieldtype": "Percent",
+      "label": "Employee / Employer Rate (% of comp)",
+      "default": "2"
+    },
+    {
+      "fieldname": "hdmf_compensation_cap",
+      "fieldtype": "Currency",
+      "label": "Compensation Cap",
+      "default": "10000",
+      "description": "Contributions are computed on compensation capped at this amount."
+    },
+    {
+      "fieldname": "section_bir",
+      "fieldtype": "Section Break",
+      "label": "BIR Graduated Withholding (2026, annual taxable pay)"
+    },
+    {
+      "fieldname": "bir_brackets",
+      "fieldtype": "Table",
+      "label": "Tax Brackets",
+      "options": "BIR Tax Bracket"
+    },
+    {
+      "fieldname": "section_options",
+      "fieldtype": "Section Break",
+      "label": "Computation Options"
+    },
+    {
+      "fieldname": "statutory_split_mode",
+      "fieldtype": "Select",
+      "label": "Semi-Monthly Split Mode",
+      "options": "Split per cutoff\nSecond cutoff only",
+      "default": "Split per cutoff",
+      "description": "Split per cutoff: monthly statutory amounts are halved per cutoff. Second cutoff only: the full monthly amount is deducted on the 2nd cutoff (start day > 15) and nothing on the 1st."
+    },
+    {
+      "fieldname": "column_break_opt1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "mwe_tax_exempt",
+      "fieldtype": "Check",
+      "label": "Exempt Minimum Wage Earners (MWE) from Income Tax",
+      "default": "1",
+      "description": "Employees with the Minimum Wage Earner checkbox are exempt from BIR withholding but still pay SSS, PhilHealth and Pag-IBIG."
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes",
+      "read_only": 1,
+      "default": "2026 basis: SSS 15% of MSC (5,000-35,000) split 10/5 ER/EE; PhilHealth 5% of base (10,000-100,000) split 50/50; Pag-IBIG EE 1%/2% and ER 2% on compensation capped at 10,000; BIR graduated rates per RA 12066 (CREATE MORE, effective Jan 2026); 13th month exempt up to PHP 90,000/yr."
+    }
+  ],
+  "issingle": 1,
+  "links": [],
+  "modified": "2026-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "PH Payroll",
+  "name": "PH Payroll Settings",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "role": "HR Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "read": 1,
+      "role": "HR User"
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}
